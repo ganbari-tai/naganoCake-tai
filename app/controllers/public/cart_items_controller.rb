@@ -1,5 +1,6 @@
 class Public::CartItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def update
@@ -12,5 +13,6 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
+    @amount = params[:amount]
   end
 end
