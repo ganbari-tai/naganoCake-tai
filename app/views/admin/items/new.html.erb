@@ -5,7 +5,7 @@
   <tr>
     <div class="form-group">
       <th><%= f.label :商品画像 %></th>
-      <th></th>
+      <th><%= f.attachment_field :image %></th>
     </div>
   </tr>
   <tr>
@@ -45,3 +45,4 @@
     </div>
   </tr>
 <% end %>
+</table>

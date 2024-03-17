@@ -1,1 +1,31 @@
 <h2>商品詳細</h2>
+<table>>
+  <tr>
+    <th>商品名</th>
+    <td><%= @item.name %></td>
+  </tr>
+  <tr>
+    <th>商品説明</th>
+    <td><%= @item.explanation %></td>
+  </tr>
+  <tr>
+    <th>ジャンル</th>
+    <td><%= @item.genre.name %></td>
+  <tr>
+    <th><br>税込価格</br>
+    (税抜価格)</th>
+    <td class=""><%= @item.add_tax_price %>円</td>
+    <td>(<%= @item.price %>円)</td>
+  </tr>
+  <tr>
+    <th>販売ステータス</th>
+    <th>
+      <% if @item.sold_out? %>
+        <strong class="text-success">販売中</strong>
+      <% else %>
+        <strong class="text-danger">販売停止中</strong>
+      <% end %>
+    </th>
+  </tr>
+</table>
+<%= link_to "編集する", edit_admin_item_path(@item),class: "mx-auto btn btn-outline-dark" %>
