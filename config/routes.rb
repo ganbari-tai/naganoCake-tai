@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 }
   
   
-  
+#管理者
   namespace :admin do
     root to: "homes#top"  
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get "/search" => "items#search"
   end
   
-  
+#顧客
   scope module: :public do
     root to: "homes#top"
     get '/about' => "homes#about", as: 'about'
@@ -39,11 +39,5 @@ Rails.application.routes.draw do
     get "/search" => "items#search"
   end
   
-    # get 'cart_items/destroy_all'
 
-    # get 'customers/unsubscribe'
-    # get 'customers/withdraw'
-
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

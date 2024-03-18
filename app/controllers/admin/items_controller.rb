@@ -23,7 +23,9 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-    redirect_to admin_items_path(@item)
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to admin_item_path(@item)
   end
   
   private
