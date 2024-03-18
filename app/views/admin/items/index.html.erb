@@ -17,13 +17,13 @@
   <% @items.each do |item| %>
   <tbody>
     <tr>
-      <td><%= items.id %></td>
-      <td><%= link_to admin_items_path(item.id) do %><u><%= items.name %></u></td>
+      <td><%= item.id %></td>
+      <td><%= link_to admin_item_path(item.id) do %><u><%= item.name %></u></td>
       <% end %>
-      <td><%= items.price_excluding_tax %></td>
-      <td><%= items.genre.name %></td>
+      <td><%= item.price %></td>
+      <td><%= item.genre.name %></td>
       <td>
-        <% if items.status == true %>
+        <% if item.is_active == true %>
           <p>販売中</p>
         <% else %>
           <p>販売停止中</p>
