@@ -5,7 +5,7 @@
   <tr>
     <div class="form-group">
       <th><%= f.label :商品画像 %></th>
-      <th></th>
+      <th><%= f.file_field :image, accept: "image/*" %></th>
     </div>
   </tr>
   <tr>
@@ -17,7 +17,7 @@
   <tr>
     <div class="form-group">
       <th><%= f.label :商品説明 %></th>
-      <th><%= f.text_area :description, placeholder:"ここに説明文を記述します" %></th>
+      <th><%= f.text_area :introduction, placeholder:"ここに説明文を記述します" %></th>
     </div>
   </tr>
   <tr>
@@ -45,3 +45,4 @@
     </div>
   </tr>
 <% end %>
+</table>
