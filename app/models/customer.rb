@@ -3,6 +3,8 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :addresses
+  
   def full_name
     self.last_name + " " + self.first_name
   end
@@ -10,5 +12,9 @@ class Customer < ApplicationRecord
     self.last_name_kana + " " + self.first_name_kana
   end
   
+  # 退会済みユーザーがログインできないようにする
+  def active_for_authentication?
+    super && (is_active == true)
+  end
   
 end
