@@ -15,10 +15,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
+    @customer = current_customer
   end
 
   def withdraw
-    
+    @customer = current_customer
+    @customer.update(is_active: false)
+    redirect_to root_path
   end
   
   private

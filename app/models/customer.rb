@@ -10,4 +10,5 @@ class Customer < ApplicationRecord
     self.last_name_kana + " " + self.first_name_kana
   end
   
+  
 end
