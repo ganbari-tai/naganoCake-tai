@@ -34,8 +34,14 @@
       <td><%= @customer.email %></td>
     </tr>
     <tr>
-      <td>!!退会確認用!!~あとで消します~</td>
-      <td><%= @customer.is_active %></td>
+      <td>!!退会確認用!! ~あとで消します~</td>
+      <td>
+        <% if @customer.is_active == true %>
+          <p>true 会員中！</p>
+        <% else %>
+          <p>退会処理ができている</p>
+        <% end %>
+      </td>
     </tr>
   </table>
   <div class="row ml-1">

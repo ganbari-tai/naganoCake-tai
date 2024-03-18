@@ -1,4 +1,4 @@
-<h1>会員一覧</h1>
+<h2>会員一覧</h2>
 <table class="table">
   <theader>
     <tr>
@@ -14,9 +14,16 @@
       <td><%= customer.id %></td>
       <td><%= link_to customer.full_name, admin_customer_path(customer.id), method: :get %></td>
       <td><%= customer.email %></td>
-      <td><%= customer.is_active %></td>
+      <td>
+        <% if customer.is_active == true %>
+          <p class="text-success"><b>有効</b></p>
+        <% else customer.is_active == false %>
+          <p class="text-black-50"><b>退会</b></p>
+        <% end %>
+      </td>
       
     </tr>
     <% end %>
   </tbody>
 </table>
+<%= paginate @customer_page %>
