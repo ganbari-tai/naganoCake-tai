@@ -29,14 +29,14 @@
   <tr>
     <div class="form-group">
       <th><%= f.label :税抜価格 %></th>
-      <th><%= f.text_field placeholder:"1000" %>円</th>
+      <th><%= f.number_field :price, placeholder:"1000" %>円</th>
     </div>
   </tr>
   <tr>
     <div class="form-group">
       <th><%= f.label :販売ステータス %></th>
-      <th><%= f.radio_button :status, false %><%= f.label :status, "販売中" %></th>
-      <th><%= f.radio_button :status, false %><%= f.label :status, "販売停止中" %></th>
+      <th><%= f.radio_button :is_active, true %><%= f.label :is_active, "販売中" %></th>
+      <th><%= f.radio_button :is_active, false %><%= f.label :is_active, "販売停止中" %></th>
     </div>
   </tr>
   <tr>
