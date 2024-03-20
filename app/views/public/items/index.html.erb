@@ -1,17 +1,22 @@
-<h2>商品一覧(全<%= @items_all.count %>件)</h2>
+<div class="container">
+  <div class="row">
+    <%= render 'genre' %>
     
-  
-<% @items.each do |item|%>
-<%= link_to item_path(item) do%>
-  <p class="img-wrap"><%= attachment_image_tag item, :image, width: "80%", format: "jpeg", fallback: "no_image.jpg" %></p>
-  <% end %>
-  <div class="card-body">
-      <p class="item-details item-name card-text"><%= item.name %></p>
-  <% if item.sales_status == true %>
-      <p class="item-details card-text"><%= item.price_excluding_tax %>円(税抜き)</p>
-    <% else %>
-      <p class="text-danger font-weight-bold card-text">販売停止中</p>
-    <% end %>
-  <% end %>
+      <h2>商品一覧(全<%= @items_all.count %>件)</h2>
+  </div>
+        
+      <% @items.each do |item|%>
+      
+      <%= link_to item_path(item) do%>
+        <p><%= image_tag item.get_image,size: "250x220" %></p>
+      <% end %>
+      <p><%= item.name %></p>
+        <% if item.is_active == true %>
+            <p><%= item.price %>円(税抜き)</p>
+          <% else %>
+            <p>販売停止中</p>
+          <% end %>
+      <% end %>
+      <%= paginate @items %>
+      
 </div>
-<%= paginate @items, class:"text-center" %>
