@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :addresses
   has_many :orders
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
   
   def full_name
     self.last_name + " " + self.first_name

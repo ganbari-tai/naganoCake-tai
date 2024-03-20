@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to :genre
 
   def add_tax_price
-    (self.price * 5).round
+    (self.price * 1.08).round
   end
   
   def get_image

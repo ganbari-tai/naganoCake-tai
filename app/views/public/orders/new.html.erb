@@ -20,15 +20,16 @@
           <%= f.radio_button :address_selection, 0, checked: true %>
           <label>ご自身の住所</label>
         </div>
-        <div>
-          <!-- current_customer.potal_code -->
+        <div class="ml-5">
+          〒<%= current_customer.postal_code %><%= current_customer.address %><br />
+          <%= current_customer.last_name %><%= current_customer.first_name %>
         </div>
         <div class="ml-4">
           <%= f.radio_button :address_selection, 1 %>
           <label>登録済住所から選択</label>
         </div>
         <div class="ml-5">
-          <%= f.collection_select :address_id, @addresses, :id, :name, include_blank: "選択して下さい", class: "form-control" %>
+          <%= f.collection_select :address_id, Address.all, :id, :full_address, include_blank: "選択して下さい", class: "form-control" %>
         </div>
         
         <div class="ml-4">
