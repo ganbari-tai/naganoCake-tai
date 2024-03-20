@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   
-  #attachment :image
+  has_many :cart_items, dependent: :destroy
   has_one_attached :image
   belongs_to :genre
 
@@ -16,6 +16,7 @@ class Item < ApplicationRecord
     end
   end
   
-  
-
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :genre_id, presence: true
 end
