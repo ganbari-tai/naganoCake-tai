@@ -1,26 +1,71 @@
-<h2>Log in</h2>
+<!--<h2>Log in</h2>-->
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<!--<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+<!--  <div class="field">-->
+<!--    <%= f.label :email %><br />-->
+<!--    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :password %><br />-->
+<!--    <%= f.password_field :password, autocomplete: "current-password" %>-->
+<!--  </div>-->
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<!--  <% if devise_mapping.rememberable? %>-->
+<!--    <div class="field">-->
+<!--      <%= f.check_box :remember_me %>-->
+<!--      <%= f.label :remember_me %>-->
+<!--    </div>-->
+<!--  <% end %>-->
+
+<!--  <div class="actions">-->
+<!--    <%= f.submit "Log in" %>-->
+<!--  </div>-->
+<!--<% end %>-->
+
+<!--<%= render "public/shared/links" %>-->
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-2 text-center" style="background-color: orange;">
+      <h5>ログイン</h5>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+  <div class="row ml-3 mb-4">
+    <span class="col-3 text-center" style="background-color: orange;">会員の方はこちらからログイン</span>
+  </div>
+  <div class="row mx-auto">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <table>
+        <tr class="mb-4">
+          <th class="mr-3"><%= f.label :メールアドレス %></th>
+          <th><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x20"  %></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr class="mb-4">
+          <th class="mr-3"><%= f.label :パスワード %></th>
+          <th><%= f.password_field :password, autocomplete: "current-password", size: "50x20"  %></th>
+        </tr>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th><%= f.submit "ログイン",class: 'btn btn-sm btn-primary btn-block', size: "20x20"  %></th>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
