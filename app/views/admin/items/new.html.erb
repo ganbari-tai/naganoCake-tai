@@ -1,13 +1,16 @@
-<div class="container">
+<div class="container mt-5 mb-5">
   <div class="row">
-    <h2>商品新規登録</h2>
+    <div class="col-sm-8 px-sm-0 offset-sm-2">
+      <h2 class="text-center bg-light">商品新規登録</h2>
+    </div>
   </div>
   
-    <div class="row">
+  <div class="row">
+    <div class="col-sm-20 px-sm-0 mx-auto ">
       <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
       <table>
         <tr>
-          <div class="form-group">
+          <div class="form-group" >
             <th><%= f.label :商品画像 %></th>
             <th><%= f.file_field :image, accept: "image/*" %></th>
           </div>
@@ -51,4 +54,5 @@
       </table>
       <% end %>
     </div>
+  </div>
 </div>
