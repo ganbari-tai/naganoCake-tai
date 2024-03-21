@@ -1,43 +1,45 @@
-<div class="container">
-  <div class="row">
-    <h2>商品一覧</h2>
-  </div>
-
-
-    </div>
-      <%= link_to new_admin_item_path, class:"btn btn--circle btn--circle-c btn--shadow" do %>
+<div class='container col-12 px-5 px-sm-0'>
+  <div class="col-md-10 mx-auto">
+    <div class="row">
+      <h2 class="mt-4 bg-secondary">商品一覧</h2>
+      <div class="col text-right">
+      <%= link_to new_admin_item_path, class: 'btn btn-default' do %>
+        <i class="fas fa-plus-circle fa-2x"></i>
       <% end %>
+      </div>
     </div>
     
-      <table>
-        <thead>
-          <tr>
-            <th>商品ID</th>
-            <th>商品名</th>
-            <th>税抜価格</th>
-            <th>ジャンル</th>
-            <th>ステータス</th>
-          </tr>
-        </thead>
-        
-        <% @items.each do |item| %>
-        
-        <tbody>
-          <tr>
-            <td><%= item.id %></td>
-            <td><%= link_to item.name,admin_item_path(item.id) %></td>
-            <td><%= item.price %>円</td>
-            <td><%= item.genre.name %></td>
-            <td>
-              <% if item.is_active == true %>
-                <strong>販売中</strong>
-              <% else %>
-                <strong>販売停止中</strong>
-              <% end %>
-            </td>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
-      <%= paginate @items %>
+    <table class='table table-hover table-sm table-borderless' >
+      <thead class="thead-light">
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      
+      <% @items.each do |item| %>
+      
+      <tbody>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= link_to item.name,admin_item_path(item.id) %></td>
+          <td><%= item.price %>円</td>
+          <td><%= item.genre.name %></td>
+          <td>
+            <% if item.is_active == true %>
+              <strong class="text-success">販売中</strong>
+            <% else %>
+              <strong class="text-black-50">販売停止中</strong>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+    <%= paginate @items, class: 'text-center' %>
+  </div>
 </div>
+

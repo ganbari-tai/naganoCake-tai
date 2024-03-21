@@ -1,9 +1,5 @@
 class Item < ApplicationRecord
   
-  has_many :cart_items, dependent: :destroy
-  has_one_attached :image
-  belongs_to :genre
-
   def add_tax_price
     (self.price * 1.08).round
   end
@@ -15,6 +11,10 @@ class Item < ApplicationRecord
       'cake.tuu.jpg'
     end
   end
+  
+  has_many :cart_items, dependent: :destroy
+  has_one_attached :image
+  belongs_to :genre
   
   validates :name, presence: true
   validates :introduction, presence: true
