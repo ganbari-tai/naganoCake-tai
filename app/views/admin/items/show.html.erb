@@ -1,10 +1,10 @@
-<div class="container mt-5 mb-5">
-  <h2 class="text-center bg-light">商品詳細</h2>
+<div class="container col-12 mt-5 mb-5">
+  <h2 class="text-center mt-4 bg-secondary ">商品詳細</h2>
   <div class="row text-center text-xs-center text-sm-left text-md-left ">
     
-      <div class="col-xs-12 col-sm-0 col-md-6 mx-auto text-right">
-      <%= image_tag @item.get_image,size: "350x300" %>
-      </div>
+      <img class= "img-fluid rounded" >
+        <%= image_tag @item.get_image,size: "350x300"  %>
+      </img>
       
     <table>
       <tr>

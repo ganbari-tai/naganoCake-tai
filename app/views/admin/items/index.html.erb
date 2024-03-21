@@ -1,7 +1,7 @@
 <div class='container col-12 px-5 px-sm-0'>
   <div class="col-md-10 mx-auto">
     <div class="row">
-      <h2 class="mt-4 text-center bg-secondary-subtle text-emphasis-secondary">商品一覧</h2>
+      <h2 class="mt-4 bg-secondary">商品一覧</h2>
       <div class="col text-right">
       <%= link_to new_admin_item_path, class: 'btn btn-default' do %>
         <i class="fas fa-plus-circle fa-2x"></i>
@@ -9,8 +9,8 @@
       </div>
     </div>
     
-    <table class='table table-hover'>
-      <thead>
+    <table class='table table-hover table-sm table-borderless' >
+      <thead class="thead-light">
         <tr>
           <th>商品ID</th>
           <th>商品名</th>
@@ -42,3 +42,4 @@
     <%= paginate @items, class: 'text-center' %>
   </div>
 </div>
+
