@@ -1,48 +1,56 @@
-<h2>
-  <%= @customer.full_name %>さんの会員詳細
-</h2>
-
-<table class="table">
-  <tr>
-    <td>会員ID</td>
-    <td><%= @customer.id %></td>
-  </tr>
-  <tr>
-    <td>氏名</td>
-    <td><%= @customer.full_name %></td>
-  </tr>
-  <tr>
-    <td>カナ</td>
-    <td><%= @customer.full_name_kana %></td>
-  </tr>
-  <tr>
-    <td>郵便番号</td>
-    <td><%= @customer.postal_code %></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= @customer.address %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= @customer.phone_number %></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= @customer.email %></td>
-  </tr>
-  <tr>
-    <td>会員ステータス</td>
-    <td>
-      <% if @customer.is_active == true %>
-        <p class="text-success"><b>有効</b></p>
-      <% else @customer.is_active == false %>
-        <p class="text-black-50"><b>退会</b></p>
-      <% end %>
-    </td>
-  </tr>
-</table>
-
-<%= link_to '編集する', edit_admin_customer_path(@customer.id), method: :get, class:"btn btn-success" %>
-<!--注文履歴一覧を作成する場合はpathの指定が必要-->
-<!-- %= link_to '注文一覧を見る', class:"btn btn-primary" %>-->
+<div class="container-fluid">
+  <div class="row m-3">
+    <h2>
+      <%= @customer.full_name %>さんの会員詳細
+    </h2>
+  </div>
+  <div class="row m-3">
+    <div class="col-6">
+      <table class="table table-borderless">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.full_name %></td>
+        </tr>
+        <tr>
+          <td>カナ</td>
+          <td><%= @customer.full_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td>
+            <% if @customer.is_active == true %>
+              <p class="text-success"><b>有効</b></p>
+            <% else @customer.is_active == false %>
+              <p class="text-black-50"><b>退会</b></p>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+     </div>
+  </div>
+  <div class="row ml-5">
+    <%= link_to '編集する', edit_admin_customer_path(@customer.id), method: :get, class:"btn btn-success" %>
+    <!--注文履歴一覧を作成する場合はpathの指定が必要-->
+    <!-- %= link_to '注文一覧を見る', class:"btn btn-primary" %>-->
+  </div>
+</div>
