@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
     resources :orders, only: [:new, :create, :index, :show]
     post "orders/confirm" => "orders#confirm"
-    get 'orders/thanks'
+    get "orders/thanks" => "orders#thanks", as:'orders_thanks'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     get "/search" => "items#search"
   end

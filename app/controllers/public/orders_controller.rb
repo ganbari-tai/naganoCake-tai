@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :cartitem_nill, only: [:new, :create]
   def new
     @order = Order.new
     @addresses = Address.all
@@ -30,19 +31,42 @@ class Public::OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     order.save
-    # 注文確認画面へリダイレクト
-    redirect_to '/confirm'
+    @cart_items = current_customer.cart_items.all
+    
+    @cart_items.each do |cart_item|
+      @order_details = OrderDetail.new
+      @order_details.order_id = order.id
+      @order_details.item_id = cart_item.item.id
+      @order_details.price =  cart_item.item.add_tax_price
+      @order_details.amount = cart_item.amount
+      @order_details.making_status = 0
+      @order_details.save!
+    end 
+    
+    CartItem.destroy_all
+    redirect_to orders_thanks_path
   end
 
   def index
+    @customer = current_customer
+    @orders = @customer.orders
   end
 
   def show
+
   end
   
   private
   
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :status, :customer_id, :total_payment, :shipping_cost)
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :status, :customer_id, :total_payment, :shopping_cost)
   end
+  
+  def cartitem_nill
+    cart_items = current_customer.cart_items
+    if cart_items.blank?
+      redirect_to cart_items_path
+    end
+  end 
+  
 end
