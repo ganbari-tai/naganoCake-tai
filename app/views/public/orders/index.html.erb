@@ -22,7 +22,8 @@
               <%= details.item.name %><br>
             <% end %>
           </td>
-          <td></td>
+          <td><%= order.total_payment %></td>
+          <td><%= t("enums.order.status.#{order.status}") %></td>
           <td>
             <%= link_to order_path(order.id) do %>
               <button class="btn btn-danger">表示する</button>
