@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  before_action :cartitem_nill, only: [:new, :create]
+   before_action :cartitem_nill, only: [:new, :create]
   def new
     @order = Order.new
     @addresses = Address.all
@@ -43,7 +43,7 @@ class Public::OrdersController < ApplicationController
       @order_details.save!
     end 
     
-    CartItem.destroy_all
+    @cart_items.destroy_all
     redirect_to orders_thanks_path
   end
 
