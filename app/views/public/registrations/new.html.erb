@@ -68,7 +68,7 @@
 <form action="<%= customer_registration_path %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-group row mx-auto">
-    <div class="col-sm-1"></div>
+    <div class="col-sm-2"></div>
     <label for="name" class="col-sm-1 col-form-label">名前</label>
     <div class="col-sm-1 mr-3"></div>
     <label for="inputlast_name" class="col-sm-0 col-form-label">(姓)</label>
@@ -81,7 +81,7 @@
     </div>
   </div>
   <div class="form-group row mx-auto">
-    <div class="col-sm-1"></div>
+    <div class="col-sm-2"></div>
     <label for="name_kana" class="col-sm-1 col-form-label">フリガナ</label>
     <div class="col-sm-1"></div>
     <label for="inputlast_name_kana" class="col-sm-0 col-form-label">(セイ)</label>
@@ -89,67 +89,67 @@
       <input type="text" class="form-control" id="inputlast_name_kana" name="customer[last_name_kana]" required>
     </div>
     <div class="col-sm-0 mr-5"></div>
-    <label for="inputfirst_name_kana" class="col-sm-0 col-form-label ml-">(メイ)</label>
+    <label for="inputfirst_name_kana" class="col-sm-0 col-form-label">(メイ)</label>
     <div class="col-sm-2">
       <input type="text" class="form-control" id="inputfirst_name_kana" name="customer[first_name_kana]" required>
     </div>
   </div>
   <div class="form-group row mx-auto">
-    <div class="col-sm-1"></div>
+    <div class="col-sm-2"></div>
     <label for="inputemail" class="col-sm-1 col-form-label">メールアドレス</label>
-    <div class="col-sm-1 mr-4"></div>
+    <div class="col-sm-1 mr-5"></div>
     <div class="col-sm-2">
       <input type="email" class="form-control" id="inputemail" name="customer[email]" required>
     </div>
   </div>
   <div class="form-group row mx-auto">
-    <div class="col-sm-1"></div>
+    <div class="col-sm-2"></div>
     <label for="inputpostal_code" class="col-sm-2 col-form-label">郵便番号(ハイフンなし)</label>
-    <div class="col-sm-1"></div>
+    <div class="col-sm-0 mr-5"></div>
     <div class="col-sm-2">
       <input type="text" class="form-control" id="inputpostal_code" name="customer[postal_code]" required>
     </div>
   </div>
   <div class="form-group row mx-auto">
-    <div class="col-sm-1"></div>
-    <label for="inputphone_number" class="col-sm-2 col-form-label">住所</label>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-5">
+    <div class="col-sm-2"></div>
+    <label for="inputphone_number" class="col-sm-1 col-form-label">住所</label>
+    <div class="col-sm-1 mr-5"></div>
+    <div class="col-sm-4">
       <input type="text" class="form-control" id="inputphone_number" name="customer[phone_number]" required>
     </div>
   </div>
   <div class="form-group row mx-auto">
-    <div class="col-sm-1"></div>
-    <label for="inputaddress" class="col-sm-2 col-form-label">電話番号</label>
-    <div class="col-sm-1"></div>
+    <div class="col-sm-2"></div>
+    <label for="inputaddress" class="col-sm-1 col-form-label">電話番号</label>
+    <div class="col-sm-1 mr-5"></div>
     <div class="col-sm-2">
       <input type="text" class="form-control" id="inputaddress" name="customer[address]" required>
     </div>
   </div>
   <div class="form-group row mx-auto">
-    <div class="col-sm-1"></div>
-    <label for="inputpassword" class="col-sm-2 col-form-label">パスワード</label>
-    <div class="col-sm-1"></div>
+    <div class="col-sm-2"></div>
+    <label for="inputpassword" class="col-sm-1 col-form-label">パスワード</label>
+    <div class="col-sm-1 mr-5"></div>
     <div class="col-sm-2">
       <input type="password" class="form-control" id="inputpassword" name="customer[password]" required>
     </div>
   </div>
   <div class="form-group row mx-auto">
-    <div class="col-sm-1"></div>
-    <label for="inputpassword_confirmation" class="col-sm-2 col-form-label">パスワードの確認</label>
-    <div class="col-sm-1"></div>
+    <div class="col-sm-2"></div>
+    <label for="inputpassword_confirmation" class="col-sm-1 col-form-label">パスワードの確認</label>
+    <div class="col-sm-1 mr-5"></div>
     <div class="col-sm-2">
       <input type="password" class="form-control" id="inputpassword_confirmation" name="customer[password_confirmation]" required>
     </div>
   </div>
     <style>
     .custom-width {
-      width: 250px; // 好みの幅に変更してください
+      width: 250px;
     }
     </style>
     
     <div class="form-group row mx-auto">
-      <div class="col-sm-4"></div>
+      <div class="col-sm-4 mr-5"></div>
       <div class="col-sm-5">
         <button type="submit" class="btn btn-primary custom-width">新規登録</button>
       </div>
