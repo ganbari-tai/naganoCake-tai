@@ -1,42 +1,51 @@
 <% flash.each do |message_type, message| %>
   <div class="flash-message <%= message_type %>"><%= message %></div>
 <% end %>
-<div class="container col-12 mt-5 mb-5">
-  <h2 class="text-center mt-4 bg-secondary ">商品詳細</h2>
-  <div class="row text-center text-xs-center text-sm-left text-md-left ">
-    
-      <img class= "img-fluid rounded" >
-        <%= image_tag @item.get_image,size: "350x300"  %>
-      </img>
+
+<div class="container">
+  <h2 class="text-center mt-5">商品詳細</h2>
+  <div class="row text-center container">
+    <div class="image-container">
+      <%= image_tag @item.get_image, size: "350x300", class: "img-fluid rounded" %>
+    </div>
       
-    <table>
+      <style>
+        th, td {
+          padding: 8px;
+        }
+      </style>
+      
+      <table class="mx-auto mt-3 col-md-8">
       <tr>
-        <th>商品名</th>
-        <td><%= @item.name %></td>
+        <th class="text-left">商品名</th>
+        <td class="text-left"><%= @item.name %></td>
       </tr>
       <tr>
-        <th>商品説明</th>
-        <td><%= @item.introduction %></td>
+        <th class="text-left">商品説明</th>
+        <td class="text-left"><%= @item.introduction %></td>
       </tr>
       <tr>
-        <th>ジャンル</th>
-        <td><%= @item.genre.name %></td>
-      <tr>
-        <th><br>税込価格</br>(税抜価格)</th>
-        <td><%= @item.add_tax_price %>円</td>
-        <td>(<%= @item.price %>円)</td>
+        <th class="text-left">ジャンル</th>
+        <td class="text-left"><%= @item.genre.name %></td>
       </tr>
       <tr>
-        <th>販売ステータス</th>
-        <th>
+        <th class="text-left"><br>税込価格</br>(税抜価格)</th>
+        <td class="text-left"><%= @item.add_tax_price %></td>
+        <td class="text-left">(<%= @item.price %>円)</td>
+      </tr>
+      <tr>
+        <th class="text-left">販売ステータス</th>
+        <td class="text-left">
           <% if @item.is_active %>
-            <strong>販売中</strong>
+            <strong style="color: green;">販売中</strong>
           <% else %>
-            <strong>販売停止中</strong>
+            <strong style="color: red;">販売停止中</strong>
           <% end %>
-        </th>
+        </td>
+      </tr>
+      <tr>
+        <td><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success mt-3" %></td>
       </tr>
     </table>
-    <%= link_to "編集する", edit_admin_item_path(@item),class:"btn btn-success" %>
   </div>
 </div>

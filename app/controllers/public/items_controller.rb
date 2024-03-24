@@ -10,7 +10,7 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @image = @item.image
     @genres = Genre.all
-    #@cart_item = CartItem.new
+    @cart_item = CartItem.new
   end
   
   def search
