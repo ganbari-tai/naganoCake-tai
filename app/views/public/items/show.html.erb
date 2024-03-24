@@ -1,6 +1,12 @@
-<%= render 'genre' %>
-     <p><%= image_tag @item.get_image,size: "250x220" %></p>
-
+<div class="container-fluid">
+  <div class="row mt-5">
+    
+    <%= render 'genre' %>
+    
+    <div class="col-md-4 mx-auto">
+      <p><%= image_tag @item.get_image,size: "250x220" %></p>
+    </div>
+    
     <div>
       <h2><strong><%= @item.name %></strong></h2>
       <h4><%= @item.introduction %></h4>
@@ -17,5 +23,7 @@
       <% else %>
         <h3>販売停止中です</h3>
       <% end %>
-    </div> 
+    </div>
+  </div>
+</div> 
 

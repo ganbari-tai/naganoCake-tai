@@ -1,14 +1,16 @@
-<div class="container">
-  <div class="row">
-    <%= render 'genre' %>
+<div class="container-fluid">
+  <div class="row mt-15">
     
+      <%= render 'genre' %>
+    
+    <div class="text-center col-md-9">
       <h2>商品一覧(全<%= @items_all.count %>件)</h2>
-  </div>
-        
+
+    <div class="row mt-3" >
       <% @items.each do |item|%>
-      
+      <div class="col-md-3">
       <%= link_to item_path(item) do%>
-        <p><%= image_tag item.get_image,size: "250x220" %></p>
+        <p><%= image_tag item.get_image,size: "200x170" %></p>
       <% end %>
       <p><%= item.name %></p>
         <% if item.is_active == true %>
@@ -16,7 +18,10 @@
           <% else %>
             <p>販売停止中</p>
           <% end %>
+          </div>
       <% end %>
       <%= paginate @items %>
-      
+      </div>
+    </div>
+  </div>
 </div>
