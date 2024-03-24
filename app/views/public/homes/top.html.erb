@@ -1,10 +1,32 @@
 <div class='container'>
   <div class='row'>
-    <div class='border mx-auto'>
+    <div class='m-5 text-center'>
       <p>ようこそ、ながのCAKEへ！</p>
       <p>このサイトは、ケーキ販売のECサイトになります。</p>
       <p>会員でない方も商品の閲覧はできますが、</p>
       <p>購入には会員登録が必要になります。</p>
+      
+      <h4>新着商品</h4>
+      <table>
+        <tr>
+          <% @items.order(created_at: :desc). limit(4).each do |item| %>
+          <td>
+            <div>
+              <%= link_to(image_tag(url_for(item.image), alt: item.name, size: "200x180"), item_path(item)) if item.image.attached? %>
+              <div>
+                <p><%= item.name %></p>
+                <% if item.is_active == true %>
+                  <p><%= item.price %></p>
+                <% else %>
+                  <p>販売停止中</p>
+                <% end %>
+              </div>
+            </div>
+          </td>
+          <% end %>
+        </tr>
+      </table>
+        <div><%= link_to "すべての商品を見る>>>", items_path %></div>
     </div>
   </div>
 </div>
