@@ -14,9 +14,10 @@ class Public::ItemsController < ApplicationController
   end
   
   def search
-    @genre_list = Genre.all
-    @genre = Genre.find(params[:genre_id])
-    @items = @genre.items.all#page(params[:page]).per(8)
+    @genres = Genre.all
+    @genre_id = params[:genre_id]
+    @items_search = Item.where(genre_id: @genre_id)
+    @items = Item.page(params[:page]).per(10)
   end
 end
   
