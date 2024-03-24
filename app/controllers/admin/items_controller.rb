@@ -11,8 +11,10 @@ class Admin::ItemsController < ApplicationController
   def create
       @item = Item.new(item_params)
       if @item.save
+        flash[:notice] = "OK"
         redirect_to admin_items_path(@item)
       else
+        flash.now[:notice] = "NG"
         render "new"
       end
   end
@@ -28,8 +30,10 @@ class Admin::ItemsController < ApplicationController
   def update
       @item = Item.find(params[:id])
       if @item.update(item_params)
+        flash[:notice] = "OK"
         redirect_to admin_items_path(@item)
       else
+        flash.now[:alert] = "NG"
         render "edit"
       end
   end
