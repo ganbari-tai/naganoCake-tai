@@ -1,3 +1,6 @@
+<% flash.each do |message_type, message| %>
+  <div class="flash-message <%= message_type %>"><%= message %></div>
+<% end %>
 <div class="container col-12 mt-5 mb-5">
   <h2 class="text-center mt-4 bg-secondary ">商品詳細</h2>
   <div class="row text-center text-xs-center text-sm-left text-md-left ">

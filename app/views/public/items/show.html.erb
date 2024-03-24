@@ -16,7 +16,7 @@
           <p>
             <%= form_with model: @cart_item, local:true do |f| %>
               <%= f.hidden_field :item_id, :value => @item.id %>
-              <%= f.number_field :amount, placeholder:"個数を選択"  %>
+              <%= f.number_field :amount, placeholder:"個数を選択",  min: 1 %>
               <%= f.submit "カートに入れる", class: "btn btn-success" %>
             <% end %>
           </p>
