@@ -22,14 +22,14 @@
     <!--        <%= f.label :"(名)", class: "ml-5" %>-->
     <!--        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "ml-3" %>-->
     <!--      </div>-->
-    
+
     <!--      <div class="field mb-2">-->
     <!--        <%= f.label :"(セイ)"%>-->
     <!--        <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"%>-->
     <!--        <%= f.label :"(メイ)", class: "ml-5" %>-->
     <!--        <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana"%>-->
     <!--      </div>-->
-          
+
     <!--      <div class="field mb-2">-->
     <!--        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "ml-5" %>-->
     <!--      </div>-->
@@ -37,27 +37,27 @@
     <!--      <div class="field mb-2">-->
     <!--        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "ml-5" %>-->
     <!--      </div>-->
-          
+
     <!--      <div class="field mb-2">-->
     <!--        <%= f.text_field :address, size: "60x20", autofocus: true, autocomplete: "address", class: "ml-5" %>-->
     <!--      </div>-->
-        
+
     <!--      <div class="field mb-2">-->
     <!--        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "ml-5" %>-->
     <!--      </div>-->
-        
+
     <!--      <div class="field mb-2">-->
             <!--<% if @minimum_password_length %>-->
             <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
             <!--<% end %><br />-->
     <!--        <%= f.password_field :password, autocomplete: "new-password"%>-->
     <!--      </div>-->
-        
+
     <!--      <div class="field mb-2">-->
             <!--<%= f.label :password_confirmation %><br />-->
     <!--        <%= f.password_field :password_confirmation, autocomplete: "new-password"%>-->
     <!--      </div>-->
-        
+
     <!--      <div class="actions ml-5">-->
     <!--        <input type="submit" name="commit" value="新規登録" class="btn btn-sm btn-success" data-disable-with="Sign up">-->
     <!--      </div>-->
@@ -65,78 +65,17 @@
     <!--<% end %>-->
     <!--  </div>-->
 </div>
-<!--<form>-->
-<!--  <div class="form-group row mx-auto">-->
-<!--    <label for="name" class="col-sm-1 col-form-label">名前</label>-->
-<!--    <label for="last_name" class="col-sm-1 col-form-label">(姓)</label>-->
-<!--    <div class="col-sm-2">-->
-<!--      <input type="last_name" class="form-control" id="inputlast_name">-->
-<!--    </div>-->
-<!--    <label for="first_name" class="col-sm-1 col-form-label">(名)</label>-->
-<!--    <div class="col-sm-2">-->
-<!--      <input type="first_name" class="form-control" id="inputfirst_name">-->
-<!--    </div>    -->
-<!--  </div>-->
-<!--  <div class="form-group row mx-auto">-->
-<!--    <label for="name_kana" class="col-sm-1 col-form-label">フリガナ</label>-->
-<!--    <label for="last_name_kana" class="col-sm-1 col-form-label">(セイ)</label>-->
-<!--    <div class="col-sm-2">-->
-<!--      <input type="last_name_kana" class="form-control" id="inputlast_name_kana">-->
-<!--    </div>-->
-<!--    <label for="first_name_kana" class="col-sm-1 col-form-label">(メイ)</label>-->
-<!--    <div class="col-sm-2">-->
-<!--      <input type="first_name_kana" class="form-control" id="inputfirst_name_kana">-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="form-group row mx-auto">-->
-<!--    <label for="email" class="col-sm-2 col-form-label">メールアドレス</label>-->
-<!--    <div class="col-sm-2">-->
-<!--      <input type="email" class="form-control" id="inputemail">-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="form-group row mx-auto">-->
-<!--    <label for="postal_code" class="col-sm-2 col-form-label">郵便番号(ハイフンなし)</label>-->
-<!--    <div class="col-sm-2">-->
-<!--      <input type="postal_code" class="form-control" id="inputpostal_code">-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="form-group row mx-auto">-->
-<!--    <label for="address" class="col-sm-2 col-form-label">住所</label>-->
-<!--    <div class="col-sm-5">-->
-<!--      <input type="address" class="form-control" id="inputaddress">-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="form-group row mx-auto">-->
-<!--    <%= label_tag :password, "パスワード", class: "col-sm-2 col-form-label" %>-->
-<!--    <div class="col-sm-5">-->
-<!--      <%= password_field_tag :password, nil, class: "form-control" %>-->
-<!--    </div>-->
-<!--  </div>-->
-  
-<!--  <div class="form-group row mx-auto">-->
-<!--    <%= label_tag :password_confirmation, "パスワードの確認", class: "col-sm-2 col-form-label" %>-->
-<!--    <div class="col-sm-5">-->
-<!--      <%= password_field_tag :password_confirmation, nil, class: "form-control" %>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="form-group row mx-auto">-->
-<!--    <div class="offset-sm-2 col-sm-5">-->
-<!--      <%= submit_tag "新規登録", class: "btn btn-primary" %>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</form>-->
-
 <form action="<%= customer_registration_path %>" method="post">
-  <%= csrf_meta_tags %>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-group row mx-auto">
     <div class="col-sm-1"></div>
     <label for="name" class="col-sm-1 col-form-label">名前</label>
-    <div class="col-sm-1"></div>
-    <label for="inputlast_name" class="col-sm-1 col-form-label">(姓)</label>
+    <div class="col-sm-1 mr-3"></div>
+    <label for="inputlast_name" class="col-sm-0 col-form-label">(姓)</label>
     <div class="col-sm-2">
       <input type="text" class="form-control" id="inputlast_name" name="customer[last_name]" required>
     </div>
-    <label for="inputfirst_name" class="col-sm-1 col-form-label">(名)</label>
+    <label for="inputfirst_name" class="col-sm-0 col-form-label ml-5">(名)</label>
     <div class="col-sm-2">
       <input type="text" class="form-control" id="inputfirst_name" name="customer[first_name]" required>
     </div>
@@ -145,11 +84,12 @@
     <div class="col-sm-1"></div>
     <label for="name_kana" class="col-sm-1 col-form-label">フリガナ</label>
     <div class="col-sm-1"></div>
-    <label for="inputlast_name_kana" class="col-sm-1 col-form-label">(セイ)</label>
+    <label for="inputlast_name_kana" class="col-sm-0 col-form-label">(セイ)</label>
     <div class="col-sm-2">
       <input type="text" class="form-control" id="inputlast_name_kana" name="customer[last_name_kana]" required>
     </div>
-    <label for="inputfirst_name_kana" class="col-sm-1 col-form-label">(メイ)</label>
+    <div class="col-sm-0 mr-5"></div>
+    <label for="inputfirst_name_kana" class="col-sm-0 col-form-label ml-">(メイ)</label>
     <div class="col-sm-2">
       <input type="text" class="form-control" id="inputfirst_name_kana" name="customer[first_name_kana]" required>
     </div>
@@ -157,7 +97,7 @@
   <div class="form-group row mx-auto">
     <div class="col-sm-1"></div>
     <label for="inputemail" class="col-sm-1 col-form-label">メールアドレス</label>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-1 mr-4"></div>
     <div class="col-sm-2">
       <input type="email" class="form-control" id="inputemail" name="customer[email]" required>
     </div>
@@ -172,9 +112,17 @@
   </div>
   <div class="form-group row mx-auto">
     <div class="col-sm-1"></div>
-    <label for="inputaddress" class="col-sm-2 col-form-label">住所</label>
+    <label for="inputphone_number" class="col-sm-2 col-form-label">住所</label>
     <div class="col-sm-1"></div>
     <div class="col-sm-5">
+      <input type="text" class="form-control" id="inputphone_number" name="customer[phone_number]" required>
+    </div>
+  </div>
+  <div class="form-group row mx-auto">
+    <div class="col-sm-1"></div>
+    <label for="inputaddress" class="col-sm-2 col-form-label">電話番号</label>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
       <input type="text" class="form-control" id="inputaddress" name="customer[address]" required>
     </div>
   </div>
@@ -194,12 +142,18 @@
       <input type="password" class="form-control" id="inputpassword_confirmation" name="customer[password_confirmation]" required>
     </div>
   </div>
-  <div class="form-group row mx-auto">
-    <div class="col-sm-4"></div>
-    <div class="offset-sm-2 col-sm-2">
-      <button type="submit" class="btn btn-primary">新規登録</button>
+    <style>
+    .custom-width {
+      width: 250px; // 好みの幅に変更してください
+    }
+    </style>
+    
+    <div class="form-group row mx-auto">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-5">
+        <button type="submit" class="btn btn-primary custom-width">新規登録</button>
+      </div>
     </div>
-  </div>
 </form>
 <div class="container">
   <div class="row">
