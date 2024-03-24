@@ -38,6 +38,13 @@ class Admin::ItemsController < ApplicationController
       end
   end
   
+  def search
+    @genres = Genre.all
+    @genre_id  = params[:genre_id]
+　　@items_search = Item.where(genre_id: @genre_id)
+　　@items = Item.page(params[:page]).per(10)
+  end
+  
   private
   def item_params
     params.require(:item).permit(:image, :name, :introduction, :price, :genre_id, :is_active)
