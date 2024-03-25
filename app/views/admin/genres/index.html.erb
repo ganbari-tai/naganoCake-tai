@@ -1,14 +1,14 @@
-<div class="container-fluid">
-  <h2>ジャンル一覧・追加</h2>
-
-  <% if @genre_new.errors.any? %>
+<% if @genre_new.errors.any? %>
   <%= @genre_new.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @genre_new.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @genre_new.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
 <% end %>
+
+<div class="container col-11">
+  <h2 class="mt-5">ジャンル一覧・追加</h2>
 
   <div class="row d-flex justify-content-between ml-2 col-9">
     <%= form_with model: @genre_new, url: admin_genres_path, method: :post do |f| %>
@@ -43,5 +43,6 @@
         <% end %>
       </tbody>
     </table>
+    <%= paginate @genres %>
   </div>
 </div>
