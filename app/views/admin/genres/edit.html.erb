@@ -1,5 +1,15 @@
 <div class="container-fluid">
   <h2>ジャンル編集</h2>
+  
+  <% if @genre.errors.any? %>
+  <%= @genre.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @genre.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+  
   <div class="row d-flex justify-content-between ml-2 col-9">
     <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
     <div class="d-flex">
