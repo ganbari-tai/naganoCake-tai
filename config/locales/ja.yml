@@ -1,4 +1,14 @@
 ja:
+  activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            password:
+              blank: "パスワードを入力してください"
+      messages:
+        record_invalid: "%{errors}"
+        
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
