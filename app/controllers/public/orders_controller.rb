@@ -2,7 +2,7 @@ class Public::OrdersController < ApplicationController
   before_action :cartitem_nill, only: [:new, :create]
   def new
     @order = Order.new
-    @addresses = Address.all
+    @addresses = current_customer.addresses
   end
 
   def confirm
