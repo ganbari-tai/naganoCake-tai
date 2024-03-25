@@ -11,8 +11,10 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
+      flash.now[:notice] = "編集に成功しました。"
       redirect_to customers_my_page_path
     else
+      flash.now[:notice] = "編集に失敗しました。"
       render :edit
     end
   end
@@ -25,6 +27,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_active: false)
     reset_session
+    flash.now[:notice] = "退会処理が完了しました。ご利用ありがとうございました。"
     redirect_to root_path
   end
   
