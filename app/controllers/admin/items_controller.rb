@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-  
+
   def index
     @items = Item.page(params[:page]).per(10)
   end
@@ -12,7 +12,7 @@ class Admin::ItemsController < ApplicationController
       @item = Item.new(item_params)
       if @item.save
         flash[:notice] = "OK"
-        redirect_to admin_items_path(@item)
+        redirect_to admin_item_path(@item)
       else
         flash.now[:notice] = "NG"
         render "new"
@@ -37,7 +37,7 @@ class Admin::ItemsController < ApplicationController
         render "edit"
       end
   end
-  
+
   private
   def item_params
     params.require(:item).permit(:image, :name, :introduction, :price, :genre_id, :is_active)
