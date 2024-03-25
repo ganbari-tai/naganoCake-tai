@@ -1,11 +1,13 @@
+<%= stylesheet_link_tag "public_stlys_address" %>
+
 <div class="container">
   <div class="col-md-10 mx-auto">
-    <div class="row">
-      <h2 class="mt-5">会員一覧</h2>
+    <div class="row justify-content-center">
+      <h2 class="my-4">会員一覧</h2>
     </div>
   
-    <table class='table table-hover table-sm table-borderless' >
-      <thead class="thead-light">
+    <table class='table table-hover table-borderless' >
+      <thead class="thead-light text-center">
         <tr>
           <th>会員ID</th>
           <th>氏名</th>
@@ -13,10 +15,10 @@
           <th>ステータス</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="text-center">
         <% @customers.each do |customer| %>
         <tr>
-          <td><%= customer.id %></td>
+          <td class=><%= customer.id %></td>
           <td><%= link_to customer.full_name, admin_customer_path(customer.id), method: :get %></td>
           <td><%= customer.email %></td>
           <td>
