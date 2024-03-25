@@ -2,15 +2,15 @@
 
 <div class="container">
   <div class="row mt-5">
-    <div class="col-md-3 align-self-center">
+    <div class="col align-self-center">
       <%= render 'genre' %>
     </div>
     
-    <div class="col-md-4 mx-auto">
+    <div class="col-4 mt-5 text-center">
       <p><%= image_tag @item.get_image,size: "250x220" %></p>
     </div>
     
-    <div>
+    <div class="col-5 mt-5">
       <h2><strong><%= @item.name %></strong></h2>
       <h4><%= @item.introduction %></h4>
       <%  if @item.is_active == true %>
