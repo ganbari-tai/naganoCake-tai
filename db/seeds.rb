@@ -11,12 +11,12 @@ Admin.create(
 )
 
 [
-  ['ケーキ'],
-  ['プリン'],
-  ['キャンディ'],
-  ['焼き菓子'],
-  ['穀物'],
-  ['人物']
+  'ケーキ',
+  'プリン',
+  'キャンディ',
+  '焼き菓子',
+  '穀物',
+  '人物'
 ].each do |genre|
   Genre.create!(
     { name: genre }
@@ -43,7 +43,7 @@ Customer.create!(
 ].each do |customer_id, cord, add, name|
   Address.create!(
     customer_id: Customer.find_by(email: "rashoumon@gmail.com").id,  # CustomerのIDを指定
-    shipping_postcode: cord,
+    postal_code: cord,
     address: add,
     name: name
   )
@@ -57,7 +57,11 @@ Item.create!(
       price: 2800,
       genre_id: 1,
       is_active: true,
-      image: File.open(Rails.root.join('app/assets/images/いちご.jpg'))
+      image: ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Rails.root.join('app/assets/images/cake1.jpg')),
+        filename: 'cake1.jpg',
+        content_type: 'image/jpeg'
+      ).signed_id
     },
     {
       name: "フルーツプリン",
@@ -65,7 +69,11 @@ Item.create!(
       price: 3400,
       genre_id: 1,
       is_active: true,
-      image: File.open(Rails.root.join('app/assets/images/フルーツ.jpg'))
+      image: ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Rails.root.join('app/assets/images/cake2.jpg')),
+        filename: 'cake2.jpg',
+        content_type: 'image/jpeg'
+      ).signed_id
     },
     {
       name: "マカロン",
@@ -73,7 +81,11 @@ Item.create!(
       price: 800,
       genre_id: 4,
       is_active: true,
-      image: File.open(Rails.root.join('app/assets/images/マカロン.jpg'))
+      image: ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Rails.root.join('app/assets/images/cake3.jpg')),
+        filename: 'cake3.jpg',
+        content_type: 'image/jpeg'
+      ).signed_id
     },
     {
       name: "オレンジクリームスプラッシュ",
@@ -81,7 +93,11 @@ Item.create!(
       price: 2900,
       genre_id: 1,
       is_active: true,
-      image: File.open(Rails.root.join('app/assets/images/オレンジ.jpg'))
+      image: ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Rails.root.join('app/assets/images/cake4.jpg')),
+        filename: 'cake4.jpg',
+        content_type: 'image/jpeg'
+      ).signed_id
     },
     {
       name: "レッドベルベットフュージョン",
@@ -89,7 +105,11 @@ Item.create!(
       price: 3000,
       genre_id: 1,
       is_active: true,
-      image: File.open(Rails.root.join('app/assets/images/ハロウィン.jpg'))
+      image: ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Rails.root.join('app/assets/images/cake5.jpg')),
+        filename: 'cake5.jpg',
+        content_type: 'image/jpeg'
+      ).signed_id
     },
     {
       name: "抹茶の幸福",
@@ -97,7 +117,11 @@ Item.create!(
       price: 3000,
       genre_id: 1,
       is_active: true,
-      image: File.open(Rails.root.join('app/assets/images/古今.jpg'))
+      image: ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Rails.root.join('app/assets/images/cake6.jpg')),
+        filename: 'cake6.jpg',
+        content_type: 'image/jpeg'
+      ).signed_id
     },
     {
       name: "いちごの桃源郷",
@@ -105,7 +129,11 @@ Item.create!(
       price: 3000,
       genre_id: 1,
       is_active: true,
-      image: File.open(Rails.root.join('app/assets/images/抹茶.jpg'))
+      image: ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Rails.root.join('app/assets/images/cake7.jpg')),
+        filename: 'cake7.jpg',
+        content_type: 'image/jpeg'
+      ).signed_id
     }
   ]
 )
