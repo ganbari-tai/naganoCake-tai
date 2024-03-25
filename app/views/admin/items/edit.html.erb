@@ -1,54 +1,48 @@
 <div class="container mt-5 mb-5">
   <div class="row">
-    <h2 class="text-center bg-light">商品編集</h2>
+    <div class="col-sm-10 offset-sm-1">
+      <h2 class="text-center bg-light">商品編集</h2>
+    </div>
   </div>
   
-      <div class="row"> 
-        <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
-        <table>
+  <div class="row mt-4">
+    <div class="col-sm-10 offset-sm-1">
+      <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+        <table class="table table-bordered">
           <tr>
-            <div class="form-group">
-              <th><%= f.label :商品画像 %></th>
-              <th><%= f.file_field :image, accept: "image/*" %></th>
-            </div>
+            <th class="text-center">商品画像</th>
+            <td class="text-center"><%= f.file_field :image, accept: "image/*" %></td>
           </tr>
           <tr>
-            <div class="form-group">
-              <th><%= f.label :商品名 %></th>
-              <th><%= f.text_field :name, placeholder:"商品名" %></th>
-            </div>
+            <th class="text-center">商品名</th>
+            <td class="text-center"><%= f.text_field :name, placeholder:"商品名", class: "form-control" %></td>
           </tr>
           <tr>
-            <div class="form-group">
-              <th><%= f.label :商品説明 %></th>
-              <th><%= f.text_area :introduction, placeholder:"ここに説明文を記述します" %></th>
-            </div>
+            <th class="text-center">商品説明</th>
+            <td class="text-center"><%= f.text_area :introduction, placeholder:"ここに説明文を記述します", class: "form-control" %></td>
           </tr>
           <tr>
-            <div class="form-group">
-              <th><%= f.label :ジャンル %></th>
-              <th><%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "--選択してください--" %></th>
-            </div>
+            <th class="text-center">ジャンル</th>
+            <td class="text-center"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "--選択してください--"}, {class: "form-control"} %></td>
           </tr>
           <tr>
-            <div class="form-group">
-              <th><%= f.label :税抜価格 %></th>
-              <th><%= f.number_field :price, placeholder:"1000" %>円</th>
-            </div>
+            <th class="text-center">税抜価格</th>
+            <td class="text-center"><%= f.number_field :price, placeholder:"1000", class: "form-control" %>円</td>
           </tr>
           <tr>
-            <div class="form-group">
-              <th><%= f.label :販売ステータス %></th>
-              <td><%= f.radio_button :is_active, true %><%= f.label :is_active, "販売中" %>
-              <%= f.radio_button :is_active, false %><%= f.label :is_active, "販売停止中" %></td>
-            </div>
+            <th class="text-center">販売ステータス</th>
+            <td class="text-center">
+              <%= f.radio_button :is_active, true, class: "form-check-input" %>
+              <%= f.label :is_active, "販売中", class: "form-check-label mr-3" %>
+              <%= f.radio_button :is_active, false, class: "form-check-input" %>
+              <%= f.label :is_active, "販売停止中", class: "form-check-label" %>
+            </td>
           </tr>
           <tr>
-            <div class="form-action">
-              <th><%= f.submit "変更を保存", class:"btn btn-success" %></th>
-            </div>
+            <td colspan="2" class="text-center"><%= f.submit "変更を保存", class:"btn btn-success" %></td>
           </tr>
         </table>
-        <% end %>
-      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
