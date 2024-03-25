@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "public_stlys_address" %>
+
 <% if @genre.errors.any? %>
   <%= @genre.errors.count %>件のエラーが発生しました
   <ul>
@@ -7,10 +9,8 @@
   </ul>
 <% end %>
 
-<div class="container">
-  <div class="col-md-10 mx-auto">
+<div class="container col-11">
     <h2 class="mt-5">ジャンル編集</h2>
-  </div>
   
   <div class="row mt-5 ml-2 col-9">
     <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
