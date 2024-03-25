@@ -1,6 +1,9 @@
+<%= stylesheet_link_tag "top_styles" %>
 <div class='container'>
-  <div class='row'>
+  <div class='row top-text mt-5'>
+    <div class="col align-self-center">
       <%= render 'public/items/genre', genres: @genres %>
+    </div>
     <div class='col-md-7 m-3 text-center'>
       <p>ようこそ、ながのCAKEへ！</p>
       <p>このサイトは、ケーキ販売のECサイトになります。</p>
@@ -30,4 +33,33 @@
         <div><%= link_to "すべての商品を見る>", items_path %></div>
     </div>
   </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class=" col-md-12">
+      <div class="card top-pic" style="max-width: 400px; height: auto;">
+        <img class="card-img" src="/images/michaela-baum-VnM6_liIRJ0-unsplash.jpg" alt="">
+        <div class="card-img-overlay">
+          <p class="text-white">ようこそ、ながのCAKEへ！</p>
+          <p class="text-white">このサイトは、ケーキ販売のECサイトになります。</p>
+          <p class="text-white">会員でない方も商品の閲覧はできますが、</p>
+          <p class="text-white">購入には会員登録が必要になります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card border-0">
+   <div class="card-img-overlay">
+      <div class="row">
+         <div class="col">
+            <p>card-img-overlayの中でrowを使うこともできるし</p>
+         </div>
+         <img src="/images/michaela-baum-VnM6_liIRJ0-unsplash.jpg" class="col" alt="foo">
+      </div>
+      <div class="card-img-overlay">
+         <p>card-img-overlayをもう1回使うこともできる</p>
+         <img src="/images/no_image.jpg" class="" alt="hoge">
+      </div>
+   </div>
 </div>
