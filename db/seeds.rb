@@ -150,7 +150,7 @@ Item.create!(
     {
       name: "ワンダーランド",
       introduction: %Q{多彩な味と色、柔らかな食感\nまるでワンダーランドのような楽しい雰囲気を演出します。},
-      price: 650,
+      price: 600,
       genre_id: 3,
       is_active: true,
       image: ActiveStorage::Blob.create_after_upload!(
