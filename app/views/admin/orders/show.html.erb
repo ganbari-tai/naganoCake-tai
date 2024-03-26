@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag "public_stlys_address" %>
 
 <div class="container-fulid m-5">
-  <div class="row">
+  <div class="row ml-5">
     <h2>注文履歴詳細</h2>
   </div>
-    <table class="table table-borderless">
+    <table class="table table-borderless ml-5">
       <tr>
         <td class="col-1"><b>購入者</b></td>
         <td><%=link_to @order.customer.full_name, admin_customer_path(@order.customer_id) %></td>
@@ -54,9 +54,9 @@
     
     <div class="row">
       <div class="col-6">
-        <table class="table table-borderless">
+        <table class="table table-borderless ml-5">
       <tr>
-          <thead class="thead-light">
+          <thead class="thead-light ">
             <tr>
               <th>商品名</th>
               <th>単価（税込）</th>
@@ -83,7 +83,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-5 d-flex align-items-end">
+      <div class="col-5 d-flex align-items-end ml-5">
         <table class="table table-borderless">
           <tr>
             <td class="col-4"><h5>商品合計</h5></td>
