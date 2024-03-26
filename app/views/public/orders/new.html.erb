@@ -28,7 +28,7 @@
           <label>登録済住所から選択</label>
         </div>
         <div class="ml-5">
-          <%= f.collection_select :address_id, Address.all, :id, :full_address, include_blank: "選択して下さい", class: "form-control" %>
+          <%= f.collection_select :address_id, @addresses, :id, :full_address, include_blank: "選択して下さい", class: "form-control" %>
         </div>
         
         <div class="ml-4">
