@@ -1,8 +1,10 @@
+<%= stylesheet_link_tag "publicitems_styles" %>
+
 <% flash.each do |message_type, message| %>
   <div class="flash-message <%= message_type %>"><%= message %></div>
 <% end %>
 
-<div class='container'>
+<div class='container text index'>
   <div class="col-md-10 mx-auto">
     <div class="row">
       <h2 class="mt-5">商品一覧</h2>
