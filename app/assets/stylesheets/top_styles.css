@@ -22,6 +22,7 @@ span {
 .items {
   margin-left: 10px;
   margin-right: 10px;
+  font-size: 13px;
 }
 
 .login {
@@ -35,6 +36,12 @@ body {
 }
 
 .login1 {
+  font-family:  "Zen Maru Gothic", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.col, h3, .col-form-label, .btn {
   font-family:  "Zen Maru Gothic", serif;
   font-weight: 400;
   font-style: normal;
