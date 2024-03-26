@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "public_stlys_address" %>
+
 <% if @genre_new.errors.any? %>
   <%= @genre_new.errors.count %>件のエラーが発生しました
     <ul>
@@ -43,6 +45,8 @@
         <% end %>
       </tbody>
     </table>
-    <%= paginate @genres %>
+    <div class="row justify-content-center">
+      <%= paginate @genres %>
+    </div>
   </div>
 </div>
