@@ -1,58 +1,56 @@
 <%= stylesheet_link_tag "public_stlys_address" %>
 
-<div class="container mt-5 mb-5">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <h2 class="text-center"><%= @customer.full_name %>さんの会員詳細</h2>
+<div class="container-fluid m-5">
+  <div class="row">
+    <div class="col-8 ml-3">
+      <h2><%= @customer.full_name %>さんの会員詳細</h2>
     </div>
   </div>
 
-  <div class="row justify-content-center mt-4">
-    <div class="col-sm-6">
-      <table class="table table-borderless">
-        <tr>
-          <td class="text-center" style="width: 30%; padding-right: 20px;"><b>会員ID</b></td>
-          <td class="text-left" style="width: 30%;"><%= @customer.id %></td>
-        </tr>
-        <tr>
-          <td class="text-center" style="width: 30%; padding-right: 20px;"><b>氏名</b></td>
-          <td class="text-left" style="width: 30%;"><%= @customer.full_name %></td>
-        </tr>
-        <tr>
-          <td class="text-center" style="width: 30%;"><b>カナ</b></td>
-          <td class="text-left" style="width: 30%;"><%= @customer.full_name_kana %></td>
-        </tr>
-        <tr>
-          <td class="text-center" style="width: 30%;"><b>郵便番号</b></td>
-          <td class="text-left" style="width: 30%;"><%= @customer.postal_code %></td>
-        </tr>
-        <tr>
-          <td class="text-center" style="width: 30%;"><b>住所</b></td>
-          <td class="text-left" style="width: 30%;"><%= @customer.address %></td>
-        </tr>
-        <tr>
-          <td class="text-center" style="width: 30%;"><b>電話番号</b></td>
-          <td class="text-left" style="width: 30%;"><%= @customer.phone_number %></td>
-        </tr>
-        <tr>
-          <td class="text-center" style="width: 30%;"><b>メールアドレス</b></td>
-          <td class="text-left" style="width: 30%;"><%= @customer.email %></td>
-        </tr>
-        <tr>
-          <td class="text-center" style="width: 30%;"><b>会員ステータス</b></td>
-          <td class="text-left" style="width: 30%;">
-            <% if @customer.is_active == true %>
-              <p class="text-success"><b>有効</b></p>
-            <% else %>
-              <p class="text-black-50"><b>退会</b></p>
-            <% end %>
-          </td>
-        </tr>
-      </table>
-    </div>
+  <div class="row ml-5">
+    <table class="table table-borderless">
+      <tr>
+        <td class="col-2 "><b>会員ID</b></td>
+        <td><%= @customer.id %></td>
+      </tr>
+      <tr>
+        <td><b>氏名</b></td>
+        <td><%= @customer.full_name %></td>
+      </tr>
+      <tr>
+        <td><b>カナ</b></td>
+        <td><%= @customer.full_name_kana %></td>
+      </tr>
+      <tr>
+        <td><b>郵便番号</b></td>
+        <td><%= @customer.postal_code %></td>
+      </tr>
+      <tr>
+        <td><b>住所</b></td>
+        <td><%= @customer.address %></td>
+      </tr>
+      <tr>
+        <td><b>電話番号</b></td>
+        <td><%= @customer.phone_number %></td>
+      </tr>
+      <tr>
+        <td><b>メールアドレス</b></td>
+        <td><%= @customer.email %></td>
+      </tr>
+      <tr>
+        <td><b>会員ステータス</b></td>
+        <td>
+          <% if @customer.is_active == true %>
+            <p class="text-success"><b>有効</b></p>
+          <% else %>
+            <p class="text-black-50"><b>退会</b></p>
+          <% end %>
+        </td>
+      </tr>
+    </table>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-2">
+  <div class="row ml-5">
+    <div class="col-2 ml-5">
       <%= link_to '編集する', edit_admin_customer_path(@customer.id), method: :get, class:"btn btn-success d-block" %>
       <!-- 注文履歴一覧を作成する場合はpathの指定が必要 -->
       <!-- <%= link_to '注文一覧を見る', class:"btn btn-primary" %> -->
