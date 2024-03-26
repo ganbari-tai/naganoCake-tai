@@ -5,7 +5,12 @@
 }
 
 .text-white {
-  font-size: 20px;
+  font-size: 25px;
+}
+
+span {
+  backdrop-filter: blur(12px);
+  background: rgba(#fff,.1);  
 }
 
 .items_text {
@@ -15,5 +20,6 @@
 }
 
 .items {
-  margin: 10px; 
+  margin-left: 10px;
+  margin-right: 10px;
 }
