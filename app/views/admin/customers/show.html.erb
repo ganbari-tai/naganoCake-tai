@@ -1,43 +1,45 @@
+<%= stylesheet_link_tag "public_stlys_address" %>
+
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
-    <div class="col-sm-10">
+    <div class="col-10">
       <h2 class="text-center"><%= @customer.full_name %>さんの会員詳細</h2>
     </div>
   </div>
 
-  <div class="row mt-4 justify-content-center">
+  <div class="row justify-content-center mt-4">
     <div class="col-sm-6">
       <table class="table table-borderless">
         <tr>
-          <td class="text-left" style="width: 30%; padding-right: 20px;"><b>会員ID</b></td>
+          <td class="text-center" style="width: 30%; padding-right: 20px;"><b>会員ID</b></td>
           <td class="text-left" style="width: 30%;"><%= @customer.id %></td>
         </tr>
         <tr>
-          <td class="text-left" style="width: 30%; padding-right: 20px;"><b>氏名</b></td>
+          <td class="text-center" style="width: 30%; padding-right: 20px;"><b>氏名</b></td>
           <td class="text-left" style="width: 30%;"><%= @customer.full_name %></td>
         </tr>
         <tr>
-          <td class="text-left" style="width: 30%;"><b>カナ</b></td>
+          <td class="text-center" style="width: 30%;"><b>カナ</b></td>
           <td class="text-left" style="width: 30%;"><%= @customer.full_name_kana %></td>
         </tr>
         <tr>
-          <td class="text-left" style="width: 30%;"><b>郵便番号</b></td>
+          <td class="text-center" style="width: 30%;"><b>郵便番号</b></td>
           <td class="text-left" style="width: 30%;"><%= @customer.postal_code %></td>
         </tr>
         <tr>
-          <td class="text-left" style="width: 30%;"><b>住所</b></td>
+          <td class="text-center" style="width: 30%;"><b>住所</b></td>
           <td class="text-left" style="width: 30%;"><%= @customer.address %></td>
         </tr>
         <tr>
-          <td class="text-left" style="width: 30%;"><b>電話番号</b></td>
+          <td class="text-center" style="width: 30%;"><b>電話番号</b></td>
           <td class="text-left" style="width: 30%;"><%= @customer.phone_number %></td>
         </tr>
         <tr>
-          <td class="text-left" style="width: 30%;"><b>メールアドレス</b></td>
+          <td class="text-center" style="width: 30%;"><b>メールアドレス</b></td>
           <td class="text-left" style="width: 30%;"><%= @customer.email %></td>
         </tr>
         <tr>
-          <td class="text-left" style="width: 30%;"><b>会員ステータス</b></td>
+          <td class="text-center" style="width: 30%;"><b>会員ステータス</b></td>
           <td class="text-left" style="width: 30%;">
             <% if @customer.is_active == true %>
               <p class="text-success"><b>有効</b></p>
