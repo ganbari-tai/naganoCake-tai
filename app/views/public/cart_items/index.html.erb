@@ -1,5 +1,6 @@
-<div class='m-5'>
-  <p>ショッピングカート</p>
+<%= stylesheet_link_tag "publichomes_styles" %>
+<div class='container text index m-5 mx-auto'>
+  <h3>ショッピングカート</h3>
   <%= flash[:notice] %>
   <% if @cart_items.present? %>
     <div class="row justify-content-end pr-5 mr-2 mb-3">
