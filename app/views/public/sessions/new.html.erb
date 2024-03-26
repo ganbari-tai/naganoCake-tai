@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "top_styles" %>
 <!--<h2>Log in</h2>-->
 
 <!--<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
@@ -24,48 +25,91 @@
 <!--<% end %>-->
 
 <!--<%= render "public/shared/links" %>-->
-<div class="container text-center">
-  <div class="row mb-5 mt-5">
-    <div class="col-2 text-center" style="background-color: orange;">
-      <h5>ログイン</h5>
-    </div>
+<!--<div class="container text-center login1">-->
+<!--  <div class="row mb-5 mt-5">-->
+<!--    <div class="col-2 text-center" style="background-color: orange;">-->
+<!--      <h5>ログイン</h5>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="row ml-3 mb-4">-->
+<!--    <span class="col-3 text-center" style="background-color: orange;">会員の方はこちらからログイン</span>-->
+<!--  </div>-->
+<!--  <div class="row mx-auto text-center">-->
+<!--    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+<!--      <table>-->
+<!--        <tr class="mb-4">-->
+<!--          <th class="mr-3"><%= f.label :メールアドレス %></th>-->
+<!--          <th><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x20"  %></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <th></th>-->
+<!--          <th></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <th></th>-->
+<!--          <th></th>-->
+<!--        </tr>-->
+<!--        <tr class="mb-4">-->
+<!--          <th class="mr-3"><%= f.label :パスワード %></th>-->
+<!--          <th><%= f.password_field :password, autocomplete: "current-password", size: "50x20"  %></th>-->
+<!--        </tr>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <th></th>-->
+<!--          <th></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <th></th>-->
+<!--          <th></th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <th></th>-->
+<!--          <th><%= f.submit "ログイン",class: 'btn btn-sm btn-primary btn-block', size: "20x20"  %></th>-->
+<!--        </tr>-->
+<!--      </table>-->
+<!--    <% end %>-->
+<!--  </div>-->
+<!--</div>-->
+
+<%= stylesheet_link_tag "top_styles" %>
+<div class="container login">
+  <div class="row">
+      <h5 class="mb-5 mt-5 px-4" style="background-color: orange;">ログイン</h5>
   </div>
   <div class="row ml-3 mb-4">
     <span class="col-3 text-center" style="background-color: orange;">会員の方はこちらからログイン</span>
   </div>
-  <div class="row mx-auto text-center">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <table>
-        <tr class="mb-4">
-          <th class="mr-3"><%= f.label :メールアドレス %></th>
-          <th><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x20"  %></th>
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
-        <tr class="mb-4">
-          <th class="mr-3"><%= f.label :パスワード %></th>
-          <th><%= f.password_field :password, autocomplete: "current-password", size: "50x20"  %></th>
-        </tr>
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
-        <tr>
-          <th></th>
-          <th><%= f.submit "ログイン",class: 'btn btn-sm btn-primary btn-block', size: "20x20"  %></th>
-        </tr>
-      </table>
-    <% end %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row mx-auto mb-3" style="width: 1000px;">
+      <div class="col-md-2">
+        <%= f.label :メールアドレス %>
+      </div>
+      <div class="col-md-8">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x20" %>
+      </div>
+    </div>
+
+
+    <div class="row mx-auto mb-5" style="width: 1000px;">
+      <div class="col-md-2">
+        <%= f.label :パスワード %>
+      </div>
+      <div class="col-md-8">
+      <%= f.password_field :password, autocomplete: "current-password", size: "50x20" %>
+      </div>
+    </div>
+    <!--<% if devise_mapping.rememberable? %>-->
+    <!--  <div class="field">-->
+    <!--    <%= f.check_box :remember_me %>-->
+    <!--    <%= f.label :remember_me %>-->
+    <!--  </div>-->
+    <!--<% end %>-->
+
+    <div class="row mx-auto col-md-2 ">
+      <%= f.submit "ログイン",class: 'btn btn-sm btn-primary btn-block' %>
+    </div>
+  <% end %>
+
+  <%= render "admin/shared/links" %>
+
 </div>
