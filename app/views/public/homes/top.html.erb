@@ -1,44 +1,50 @@
-<%= stylesheet_link_tag "top_styles" %>
-<div class='container mt-2'>
-  <div class='row top-text'>
-    <div class="col-md-3">
-      <%= render 'public/items/genre', genres: @genres %>
-    </div>
-    <div class="col-md-8 m-auto">
-      <%= image_tag 'michaela-baum-VnM6_liIRJ0-unsplash.jpg' ,class: 'card-img', size: "620x400" %>
-        <div class="card-img-overlay  d-flex">
-          <div class="m-auto">
-            <p class="text-white"><span>ようこそ、ながのCAKEへ！</span></p>
-            <p class="text-white"><span>このサイトは、ケーキ販売のECサイトになります。</span></p>
-            <p class="text-white"><span>会員でない方も商品の閲覧はできますが、</span></p>
-            <p class="text-white"><span>購入には会員登録が必要になります。</span></p>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
-<div class="container pull-right items_text">
-  <div class="col-md-8 ">
-    <h4>新着商品</h4>
-        <table>
+<div class="container">
+  <div class="row mt-3">
+    <h3>注文履歴一覧</h3>
+    <table class="table">
+      <tr class="table-active">
+        <td>購入日時</td>
+        <td>購入者</td>
+        <td>注文個数</td>
+        <td>注文ステータス</td>
+      </tr>
+        <% @orders.each do |order| %>
           <tr>
-            <% @items.order(created_at: :desc). limit(4).each do |item| %>
             <td>
-              <div class="items">
-                <%= link_to(image_tag(item.get_image, alt: item.name, size: "200x180"), item_path(item)) %>
-                <div>
-                  <p><%= item.name %></p>
-                  <% if item.is_active == true %>
-                    <p>¥<%= item.price %></p>
-                  <% else %>
-                    <p>販売停止中</p>
-                  <% end %>
-                </div>
-              </div>
+              <%= link_to  admin_order_path(order.id) do %>
+                <%=  l(order.created_at, format: '%Y/%m/%d/(%a) %H:%M') %>
+              <% end %>
             </td>
-            <% end %>
+            <td><%= order.customer.last_name %><%= order.customer.first_name%></td>
+            <td><%= order.order_details.sum(:amount) %></td>
+            <td><%= order.status_i18n %></td>
           </tr>
-        </table>
+        <% end %>
+    </table>
+  <div class="row mt-5">
+    <div class="col-sm-10 mx-auto">
+      <h3>注文履歴一覧</h3>
+      <table class="table">
+        <tr class="table-active">
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
+        </tr>
+          <% @orders.each do |order| %>
+            <tr>
+              <td>
+                <%= link_to  admin_order_path(order.id) do %>
+                  <%=  l(order.created_at, format: '%Y/%m/%d/ %H:%M') %>
+                <% end %>
+              </td>
+              <td><%= order.customer.last_name %><%= order.customer.first_name%></td>
+              <td><%= order.order_details.sum(:amount) %></td>
+              <td><%= order.status_i18n %></td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
   </div>
+    <%= paginate @orders %>
 </div>
-<div class="container text-right"><%= link_to "すべての商品を見る>", items_path %></div>
