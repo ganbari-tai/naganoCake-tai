@@ -27,23 +27,27 @@
       </thead>
       
       <% @items.each do |item| %>
-      
-      <tbody>
-        <tr>
-          <td><%= item.id %></td>
-          <td><%= link_to item.name,admin_item_path(item.id) %></td>
-          <td><%= item.price %>円</td>
-          <td><%= item.genre.name %></td>
-          <td>
-            <% if item.is_active == true %>
-              <strong class="text-success">販売中</strong>
-            <% else %>
-              <strong class="text-black-50">販売停止中</strong>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-      <% end %>
+
+        <tbody>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name,admin_item_path(item.id) %></td>
+            <td><%= item.price %>円</td>
+            <td><%= item.genre.name %></td>
+            <td>
+              <% if item.is_active == true %>
+                <strong class="text-success">販売中</strong>
+              <% else %>
+                <strong class="text-black-50">販売停止中</strong>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5"></td>
+          </tr>
+        </tbody>
+        
+        <% end %>
     </table>
     <div class="col-md-9 mx-auto"> 
       <%= paginate @items %>
