@@ -1,0 +1,16 @@
+.logo {
+  font-family: "Fascinate Inline", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+}
+
+.collapse {
+  font-family: "Zen Maru Gothic", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+    background-color: #595455;
+}

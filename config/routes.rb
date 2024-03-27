@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :customers
-  devise_for :admin
+  devise_for :customers,skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+}
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+    sessions: "admin/sessions"
+}
   
   
-  
+#管理者
   namespace :admin do
     root to: "homes#top"  
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
@@ -15,7 +20,7 @@ Rails.application.routes.draw do
     get "/search" => "items#search"
   end
   
-  
+#顧客
   scope module: :public do
     root to: "homes#top"
     get '/about' => "homes#about", as: 'about'
@@ -25,20 +30,15 @@ Rails.application.routes.draw do
     patch "customers/infomation" => "customers#update"
     get "customers/unsubscribe" => "customers#unsubscribe"
     patch "customers/withdraw" => "customers#withdraw"
-    resources :cart_items, only: [:index, :update, :destroy, :create]
+    resources :cart_items, only: [:index, :update, :create]
+    delete "cart_items/destroy/:id" => "cart_items#destroy", as:'destroy_cart_item'
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
+    get "orders/thanks" => "orders#thanks", as:'orders_thanks'
     resources :orders, only: [:new, :create, :index, :show]
     post "orders/confirm" => "orders#confirm"
-    get 'orders/thanks'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     get "/search" => "items#search"
   end
   
-    # get 'cart_items/destroy_all'
 
-    # get 'customers/unsubscribe'
-    # get 'customers/withdraw'
-
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

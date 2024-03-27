@@ -1,2 +1,23 @@
-<h1>Public::Homes#about</h1>
-<p>Find me in app/views/public/homes/about.html.erb</p>
+<%= stylesheet_link_tag "publichomes_styles" %>
+<style>
+  .extra-large-heading {
+    font-size: 5em;
+  }
+</style>
+
+<div class="container text index">
+  <div class="mx-auto text-center">
+    
+    <h1 class="mt-5 mb-3 extra-large-heading"><strong>About</strong></h1>
+    <strong><h5>ながのCAKEは全国発送可能なケーキ屋さんです</h5></strong>
+    <strong><h5>お子様からお年寄りの方までお召し上がりいただけるよう、</h5></strong>
+    <strong><h5>様々なバリエーションをご用意しております。</h5></strong>
+    <strong><h5>また、全国へ発送可能ですので「いつ」でも「どこ」でもご注文いただけます。</h5></strong>
+    <strong><h5>ぜひご注文ください。</h5></strong>
+    
+    <div class="container">
+      <%= image_tag 'cake7.jpg', size: '620x400' %>
+    </div>
+  </div>
+</div>
+

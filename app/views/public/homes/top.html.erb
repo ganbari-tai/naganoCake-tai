@@ -1,2 +1,45 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<%= stylesheet_link_tag "top_styles" %>
+<div class='container mt-5'>
+  <div class='row top-text'>
+    <div class="col-md-3">
+      <%= render 'public/items/genre', genres: @genres %>
+    </div>
+    <div class="col-md-8 m-auto">
+      <%= image_tag 'michaela-baum-VnM6_liIRJ0-unsplash.jpg' ,class: 'card-img', size: "620x400" %>
+        <div class="card-img-overlay">
+          <div class="m-auto">
+            <p class="text-white">ようこそ、ながのCAKEへ！</p>
+            <p class="text-white">このサイトは、ケーキ販売のECサイトになります。</p>
+            <p class="text-white">会員でない方も商品の閲覧はできますが、</p>
+            <p class="text-white">購入には会員登録が必要になります。</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container items_text">
+  <div class="col-md-3"></div>
+  <div class="col-md-8">
+    <h4>新着商品</h4>
+        <table>
+          <tr>
+            <% @items.order(created_at: :desc). limit(4).each do |item| %>
+            <td>
+              <div class="items">
+                <%= link_to(image_tag(item.get_image, alt: item.name, size: "200x180"), item_path(item)) %>
+                <div>
+                  <p><%= item.name %></p>
+                  <% if item.is_active == true %>
+                    <p>¥<%= item.price %></p>
+                  <% else %>
+                    <p>販売停止中</p>
+                  <% end %>
+                </div>
+              </div>
+            </td>
+            <% end %>
+          </tr>
+        </table>
+    <div><%= link_to "すべての商品を見る>", items_path %></div>
+  </div>
+</div>

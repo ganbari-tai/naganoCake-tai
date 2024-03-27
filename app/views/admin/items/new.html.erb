@@ -1,2 +1,50 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<%= stylesheet_link_tag "publicitems_styles" %>
+
+<div class="container mt-5 mb-5 text index">
+  <div class="row">
+    <div class="col-sm-10 offset-sm-1">
+      <h2 class="text-center bg-light">商品新規登録</h2>
+    </div>
+  </div>
+  
+  <div class="row mt-4">
+    <div class="col-sm-10 offset-sm-1">
+      <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+        <table class="table table-bordered">
+          <tr>
+            <th class="text-center">商品画像</th>
+            <td class="text-center"><%= f.file_field :image, accept: "image/*" %></td>
+          </tr>
+          <tr>
+            <th class="text-center">商品名</th>
+            <td class="text-center"><%= f.text_field :name, placeholder:"商品名", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="text-center">商品説明</th>
+            <td class="text-center"><%= f.text_area :introduction, placeholder:"ここに説明文を記述します", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="text-center">ジャンル</th>
+            <td class="text-center"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "--選択してください--"}, {class: "form-control"} %></td>
+          </tr>
+          <tr>
+            <th class="text-center">税抜価格</th>
+            <td class="text-center"><%= f.number_field :price, placeholder:"1000", class: "form-control" %>円</td>
+          </tr>
+          <tr>
+            <th class="text-center">販売ステータス</th>
+            <td class="text-center">
+              <%= f.radio_button :is_active, true, class: "form-check-input" %>
+              <%= f.label :is_active, "販売中", class: "form-check-label mr-3" %>
+              <%= f.radio_button :is_active, false, class: "form-check-input" %>
+              <%= f.label :is_active, "販売停止中", class: "form-check-label" %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center"><%= f.submit "新規登録", class:"btn btn-success" %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
